@@ -5,11 +5,11 @@ define([], function () {
     function Q() {
         this.items      = null;
         // Index of first question after the initial ones shown at page load
-        this.startIndex = 4;
+        this.startIndex = 1;
         
         this.btnTmpl    =   '<i class="icon-chevron-#{direction} icon-white"></i>&nbsp;';
         
-        this.itemTmpl   =   '<div class="item">' +
+        this.itemTmpl   =   '<div class="#{active} item">' +
                                 '<h2>Question ##{index}:</h2>' +
                                 '<p>#{question}</p>' +
                                 '<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#answer#{index}">' +
@@ -49,7 +49,7 @@ define([], function () {
                     answerTmpl,
                     ind = _this.startIndex + index;
                     
-                answerBody = _this.tmpl(_this[item.answerType + 'Tmpl'], {
+                answerBody = _this.tmpl(_this[item.type + 'Tmpl'], {
                     content: item.answer,
                     lang: item.lang
                 });
@@ -63,11 +63,12 @@ define([], function () {
                     index: ind,
                     question: item.question,
                     link: _this.tmpl(_this.btnTmpl, {direction: 'right'}) + 'View answer',
-                    answer: answerTmpl
+                    answer: answerTmpl,
+                    active: index === 0 ? 'active' : ''
                 }));
             });
             
-            $('.carousel-inner').append(html.join(''));
+            $('.carousel-inner').html(html.join(''));
             
             this.bindItems();
             this.makePretty();

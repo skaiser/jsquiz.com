@@ -1,12 +1,12 @@
 [{
     "question": "Provide example code for how you would go about inserting an HTML node into the DOM tree using JavaScript.",
-    "answerType": "code",
+    "type": "code",
     "answer": "var el = document.createElement('div');\nel.innerHTML = 'Some content';\ndocument.body.appendChild(el);",
     "lang": "js"
 },
 {
     "question": "What is your name?",
-    "answerType": "code",
+    "type": "code",
     "answer": "body {color: #000;}",
     "lang": "css"  
 }]
