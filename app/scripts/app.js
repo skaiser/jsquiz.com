@@ -132,7 +132,7 @@ define([], function () {
             
             // Go get our data
             $.ajax({
-                url: 'templates/questions.json',
+                url: 'models/questions.json',
                 dataType: 'script',
                 context: app
             }).done(function (data) {
