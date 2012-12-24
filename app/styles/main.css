@@ -19,6 +19,10 @@ body {
     top: -30px;
 }
 
+.carousel-control:hover {
+    color: #bbb;
+}
+
 .carousel-control.right {
     right: -30px;
 }
