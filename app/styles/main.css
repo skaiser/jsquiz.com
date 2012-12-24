@@ -1,1 +1,24 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+
+/* Help keep UI from shifting when answers are unhidden */
+body {
+    min-height: 800px;
+}
+
+.site-title-hero {
+    padding: 30px 60px;
+}
+
+.has-pretty {
+    margin-top: 1em;
+}
+
+.carousel-control {
+    color: #444;
+    left: -30px;
+    top: -30px;
+}
+
+.carousel-control.right {
+    right: -30px;
+}
