@@ -30,3 +30,7 @@ body {
 .carousel-inner {
     min-height: 225px;
 }
+
+.center {
+    text-align: center;
+}

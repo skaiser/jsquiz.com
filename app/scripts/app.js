@@ -91,7 +91,17 @@ define([], function () {
                 $button.html(icon + 'View answer');
             });
             
+            $('#goto-button').on('click', function (e) {
+                var val = $('#' + $(this).attr('for')).val();
+                _this.$carousel.carousel(val - 1);
+            });
             
+            $(document).on('keyup', '#goto-input', function (e) {
+                if (e.which == 13) {
+                    e.stopImmediatePropagation();
+                    $('#goto-button').trigger('click');
+                }
+            });
         },
         
         makePretty: function () {
@@ -118,6 +128,7 @@ define([], function () {
         
         init: function (app) {
             var $carousel = $('#questions');
+            app.$carousel = $carousel;
             
             // Go get our data
             $.ajax({
