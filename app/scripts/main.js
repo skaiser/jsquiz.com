@@ -10,6 +10,7 @@ require.config({
 require(['app'], function(app) {
   // use app here
     $(document).ready(function () {
-        new window.Quiz().init();
+        window.QuizApp = new window.Quiz()
+        window.QuizApp.init(window.QuizApp);
     });
 });

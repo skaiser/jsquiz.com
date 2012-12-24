@@ -1,10 +1,29 @@
 define([], function() {
     function Q() {
+        this.btnTmpl = '<i class="icon-chevron-#{direction} icon-white"></i>&nbsp;';
         return this;
     }
     
     Q.prototype = {
-        init: function () {
+        /**
+         *  Credit: jQuery Simple Templates - http://code.google.com/p/jquery-simple-templates/
+         *
+         */
+        tmpl: function (template, values) {
+            var regx = /#\{([^{}]*)}/g;
+            
+            template = template || '';
+            values = values || {};
+            
+            function repl(str, value) {
+                return typeof values[value] === 'string' || typeof values[value] === 'number' ? values[value] : str;
+            }
+            
+            return template.replace(regx, repl);
+        },
+        
+        
+        init: function (app) {
             var $carousel = $('#questions'),
                 $collapse = $('.collapse');
             
@@ -16,15 +35,17 @@ define([], function() {
             
             $collapse.on('shown', function (e) {
                 var $button = $(this).siblings('button[data-toggle="collapse"]');
-                    icon = '<i class="icon-chevron-down icon-white"></i>';
-                $button.html(icon + '&nbsp;Hide answer');
+                    icon = app.tmpl(app.btnTmpl, {direction: 'down'});
+                $button.html(icon + 'Hide answer');
             });
             
             $collapse.on('hidden', function (e) {
                 var $button = $(this).siblings('button[data-toggle="collapse"]');
-                    icon = '<i class="icon-chevron-right icon-white"></i>';
-                $button.html(icon + '&nbsp;View answer');
+                    icon = app.tmpl(app.btnTmpl, {direction: 'right'});
+                $button.html(icon + 'View answer');
             });
+            
+            return this;
         }
     };
     
