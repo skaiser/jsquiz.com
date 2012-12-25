@@ -5,6 +5,14 @@ body {
     min-height: 800px;
 }
 
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+    width: auto;
+    max-width: 940px;
+}
+
 .site-title-hero {
     padding: 30px 60px;
 }
@@ -33,4 +41,43 @@ body {
 
 .center {
     text-align: center;
+}
+
+/* JSS Media Queries from mediaquery.js: https://github.com/skaiser/mediaquery.js */
+
+.jsmq-small .hero-unit,
+.jsmq-smaller .hero-unit {
+    padding: 45px 15px;
+}
+
+.jsmq-small .hero-unit p,
+.jsmq-smaller .hero-unit p {
+    font-size: 17px;
+}
+
+.jsmq-small .site-title-hero,
+.jsmq-smaller .site-title-hero {
+    padding: 15px;
+}
+
+.jsmq-small .site-title-hero h1,
+.jsmq-smaller .site-title-hero h1 {
+    font-size: 45px;
+}
+
+.jsmq-small .carousel-control,
+.jsmq-smaller .carousel-control {
+    left: -5px;
+    top: -20px;
+}
+
+.jsmq-small .carousel-control.right,
+.jsmq-smaller .carousel-control.right {
+    right: -5px;
+    left: auto;
+}
+
+.jsmq-small pre,
+.jsmq-smaller pre {
+    font-size: 12px;
 }
