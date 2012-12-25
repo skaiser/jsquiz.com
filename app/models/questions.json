@@ -3,34 +3,47 @@
     "type": "text",
     "answer": "When an outer function returns an inner function that uses a variable from from the outer function, the inner function still has access to the function in the outer scope even after the outer function has returned (executed).",
     "lang": "js",
-    "details" : ""
+    "details" : "",
+    "link": "https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures"
 },
 {
-    "question": "Give an example of a closure with explanation",
+    "question": "Give an example of a closure with explanation.",
     "type": "code",
-    "answer": "// The Module Pattern is a common and practical example:\n\nvar Module = (function () {\n\tvar name = 'private';\n\tfunction getName() {\n\t\treturn name;\n\t}\n\treturn {\n\t\tgetName: getName\n\t};\n})();\nconsole.log(Module.getName());\t// 'private'",
+    "answer": "// The (Revealing) Module Pattern is a common and practical example:\n\nvar Module = (function () {\n\tvar name = 'private';\n\tfunction getName() {\n\t\treturn name;\n\t}\n\treturn {\n\t\tgetName: getName\n\t};\n})();\nconsole.log(Module.getName());\t// 'private'",
     "lang": "js",
-    "details" : ""
+    "details" : "The variable name (and also the inner function getName) are available even after the Module function has executed. This is also an example of how to emulate private variables in JavaScript.",
+    "link": "https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Closures"
 },
 {
     "question": "What is a drawback to using a bunch of closures?",
     "type": "text",
     "answer": "Memory consumption. Since a closure holds a reference to the outer function's variable, it can't be garbage collected.",
     "lang": "js",
-    "details" : ""
+    "details" : "",
+    "link": "http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/"
 },
 {
-    "question": "Provide example code for how you would go about inserting an HTML node into the DOM tree using JavaScript.",
-    "type": "code",
-    "answer": "var el = document.createElement('div');\nel.innerHTML = 'Some content';\ndocument.body.appendChild(el);",
+    "question": "What is a benefit of using the Module Pattern?",
+    "type": "text",
+    "answer": "<ol><li>You can create an encapslated module that is less likely to conflict with other modules</li><li>You get the ability to have public and private methods</li></ol>",
     "lang": "js",
-    "details" : ""
+    "details" : "See also the Revealing Module Pattern.",
+    "link": "http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript"
+},
+{
+    "question": "Provide example code for how you would go about inserting a node into the DOM tree using JavaScript.",
+    "type": "code",
+    "answer": "var el = document.createElement('div');\ndocument.body.appendChild(el);",
+    "lang": "js",
+    "details" : "",
+    "link": "https://developer.mozilla.org/en-US/docs/DOM/Node.appendChild"
 },
 {
     "question": "How do you make a method chainable?",
     "type": "code",
-    "answer": "return this;",
+    "answer": "function chainable() {\n\treturn this;\n}",
     "lang": "js",
-    "details" : ""  
+    "details" : "You return the object itself from the method that gets called by returning 'this'.",
+    "link": ""
 }]
 

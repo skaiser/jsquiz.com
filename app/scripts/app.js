@@ -13,13 +13,15 @@ define([], function () {
                                 '<h2>Question ##{index}:</h2>' +
                                 '<p>#{question}</p>' +
                                 '<button type="button" class="btn btn-link" data-toggle="collapse" data-target="#answer#{index}">' +
-                                    '#{link}' +
+                                    '#{btn}' +
                                 '</button>' +
                                 '#{answer}' +
                             '</div>';
                             
         this.answerTmpl =   '<div id="answer#{index}" class="collapse has-pretty">' +
                                 '#{content}' +
+                                '#{details}' +
+                                '#{link}' +
                             '</div>';
                             
         this.codeTmpl   =   '<pre class="prettyprint linenums pre-scrollable lang-#{lang}">' +
@@ -27,6 +29,11 @@ define([], function () {
                             '</pre>';
                           
         this.textTmpl   =   '<p>#{content}</p>';
+        
+        this.infoTmpl   =   '<a class="btn btn-info btn-mini" href="#{link}" target="_blank" '+
+                                'title="More Info">More Info&nbsp;' +
+                                '<i class="icon-share icon-white"></i>' +
+                            '</a>';
         
         return this;
     }
@@ -47,6 +54,8 @@ define([], function () {
             $.map(items, function (item, index) {
                 var answerBody,
                     answerTmpl,
+                    details,
+                    link,
                     ind = _this.startIndex + index;
                     
                 answerBody = _this.tmpl(_this[item.type + 'Tmpl'], {
@@ -54,15 +63,26 @@ define([], function () {
                     lang: item.lang
                 });
                 
+                if (item.details) {
+                    details = _this.tmpl(_this.textTmpl, { content: item.details });
+                }
+                
+                if (item.link) {
+                    link = _this.tmpl(_this.infoTmpl, { link: item.link });
+                }
+                
                 answerTmpl = _this.tmpl(_this.answerTmpl, {
                     index: ind,
-                    content: answerBody
+                    content: answerBody,
+                    details: details || '',
+                    link: link || ''
                 });
+                
                 
                 html.push(_this.tmpl(_this.itemTmpl, {
                     index: ind,
                     question: item.question,
-                    link: _this.tmpl(_this.btnTmpl, {direction: 'right'}) + 'View answer',
+                    btn: _this.tmpl(_this.btnTmpl, {direction: 'right'}) + 'View answer',
                     answer: answerTmpl,
                     active: index === 0 ? 'active' : ''
                 }));
