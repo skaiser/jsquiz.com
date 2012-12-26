@@ -45,32 +45,32 @@ body {
 
 /* JSS Media Queries from mediaquery.js: https://github.com/skaiser/mediaquery.js */
 
-.jsmq-lt-medium .hero-unit {
+.below-jsmq-medium .hero-unit {
     padding: 45px 15px;
 }
 
-.jsmq-lt-medium .hero-unit p {
+.below-jsmq-medium .hero-unit p {
     font-size: 17px;
 }
 
-.jsmq-lt-medium .site-title-hero {
+.below-jsmq-medium .site-title-hero {
     padding: 15px;
 }
 
-.jsmq-lt-medium .site-title-hero h1 {
+.below-jsmq-medium .site-title-hero h1 {
     font-size: 45px;
 }
 
-.jsmq-lt-medium .carousel-control {
+.below-jsmq-medium .carousel-control {
     left: -5px;
     top: -20px;
 }
 
-.jsmq-lt-medium .carousel-control.right {
+.below-jsmq-medium .carousel-control.right {
     right: -5px;
     left: auto;
 }
 
-.jsmq-lt-medium pre {
+.below-jsmq-medium pre {
     font-size: 12px;
 }
