@@ -43,6 +43,11 @@ body {
     text-align: center;
 }
 
+.logo {
+    width: 330px;
+    margin-bottom: 0.3em;
+}
+
 /* JSS Media Queries from mediaquery.js: https://github.com/skaiser/mediaquery.js */
 
 .below-jsmq-medium .hero-unit {
@@ -73,4 +78,8 @@ body {
 
 .below-jsmq-medium pre {
     font-size: 12px;
+}
+
+.jsmq-smaller .logo {
+    width: 100%;
 }

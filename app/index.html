@@ -22,8 +22,9 @@
     </head>
     <body>
     <div class="container">
-        <div class="hero-unit site-title-hero">
-            <h1>JSQuiz.com</h1>
+        <div class="hero-unit site-title-hero center">
+            <!-- <h1>JSQuiz.com</h1> -->
+            <h1><img class="logo" src="images/jsquiz_v4.png" alt="jsquiz.com logo" /></h1>
             <p class="lead">This site provides practice for common front-end coding questions and problems.</p>
         </div>
         <div class="hero-unit">
@@ -77,5 +78,13 @@
     <!-- build:js scripts/amd-app.js -->
     <script data-main="scripts/main" src="scripts/vendor/require.js"></script>
     <!-- endbuild -->
+    
+    
+    
+    
+    
+    <script>
+        $(window).on('resize',jsmq.update);
+    </script>
 </body>
 </html>
