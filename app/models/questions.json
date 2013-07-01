@@ -45,5 +45,29 @@
     "lang": "js",
     "details" : "You return the object itself from the method that gets called by returning 'this'.",
     "link": ""
+},
+{
+    "question": "How can you detect whether an object is an Array?",
+    "type": "code",
+    "answer": "var someArray = [];\nfunction isArray(arr) {\n\treturn Object.prototype.toString.call(arr) === '[object Array]';\n}\nisArray(someArray);",
+    "lang": "js",
+    "details" : "You cannot use 'typeof someArray' because JavaScript will return 'object' for that, so a solution is to use the toString method to get a string that reveals that the object is indeed a JavaScript Array.",
+    "link": ""
+},
+{
+    "question": "Write a method that will iterate a standard 'for' loop (e.g., 'for (var i=0; i<5; i++)' and log the value of 'i' during each iteration.",
+    "type": "code",
+    "answer": "function logValues() {\n\tfor (var i=0; i<5; i++) {\n\t\twindow.setTimeout((function (current) {\n\t\t\treturn function () {\n\t\t\t\tconsole.log(current);\n\t\t\t};\n\t\t})(i), 0);\n\t}\n}\nlogValues();",
+    "lang": "js",
+    "details" : "Because of closures, 'i' is bound as a reference to the value defined in the outer scope. To get the current value of 'i' during each iteration, you need to pass the value into a new scope.",
+    "link": ""
+},
+{
+    "question": "Write a method that could be used to 'throttle' an event that fires frequently, like a window resize. The method should be designed to ensure that a callback on the event will only occur once during a defined interval.",
+    "type": "code",
+    "answer": "var update = function() { console.log('update') };\nvar throttle = (function () {\n\tvar timer;\n\treturn function (callback, interval) {\n\t\tif (timer) {\n\t\t\twindow.clearTimeout(timer);\n\t\t}\n\t\ttimer = window.setTimeout(callback, interval);\n\t};\n})();\n$(window).on('resize', function () {\n\tthrottle(update, 200);\n});",
+    "lang": "js",
+    "details" : "This will call the update() method only once in 200 milliseconds if the browser window is resized. This is useful for taking actions based on responsive web design, but not incurring the expense of firing this callback many times within a few milliseconds, like resize does by default. You might also want to look at <a href='http://unscriptable.com/2009/03/20/debouncing-javascript-methods/' target='_blank'>debouncing</a>, which ensures the callback will also only be executed once.",
+    "link": ""
 }]
 
